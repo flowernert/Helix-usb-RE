@@ -378,4 +378,17 @@ Device Descriptor:
         bInterval               8
 ```
 
+**6 interfaces are listed**
+
+Interface 0 : proprietary bulk data transfer, 1 endpoint out, 1 endpoint in, paquet size 512B max. 
+
+Interface association (1,2,3,4) : Audio
+  - interface 1 : 4 audio control interfaces (header, clock, input terminal (microphone), output terminal (speaker))
+  - interface 2 : Audio streaming interfaces (streaming, format type 1, endpoint 3 out) 
+  - interface 3 : Audio streaming interfaces (streaming, format type 1, endpoint 3 in)
+  - interface 4 : Audio MIDI streaming interfaces (header, midi in jack embedded, midi in jack external, midi out jack embedded, midi out jack external, endpoint 4 out, endpoint 4 in)
+
+Interface 5 : Human interface device (descriptor type : Report), endpoint 5 in
+
+**Interface 0 have 2 bulk data transfer channels, each in one direction (host to hw or hw to host), it's the most likely to be the one used to communicate with the Helix Edit app**
 
