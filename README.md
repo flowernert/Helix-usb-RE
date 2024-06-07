@@ -44,7 +44,7 @@ Device Descriptor:
   bcdDevice            2.00
   iManufacturer           1 LINE 6
   iProduct                2 HELIX   
-  iSerial                 3    2804896
+  iSerial                 3    XXXXXXX
   bNumConfigurations      1
   Configuration Descriptor:
     bLength                 9
