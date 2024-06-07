@@ -392,3 +392,27 @@ Interface 5 : Human interface device (descriptor type : Report), endpoint 5 in
 
 **Interface 0 have 2 bulk data transfer channels, each in one direction (host to hw or hw to host), it's the most likely to be the one used to communicate with the Helix Edit app**
 
+## USB frames capture and analysis
+
+After installing Helix Edit in a Windows OS virtual machine on a Linux host, setting the USB pass-through to Windows OS for my Helix device and installing and setting Wireshark USB paquets capture on my host, I'm ready to have a first look at exchanged paquets.
+To avoid frequent disconnects think about disabled the energy saving feature of windows which turns off the USB ports power.
+
+### First impressions and deductions
+
+The size of the paquets can vary, I observe the first byte of the paquet is the size in bytes of the paquet minus 8. I deduce from this that the header of the paquet is at least 8 bytes long.
+
+The communication take place on 2 unidirectionnal channel. Most of the time the channel OUT is for the host computer to send requests, the channel IN is for the Helix device to answer these requests or send other messages.
+
+### Initial handshake 
+
+There's a first bulk of data exchanged with the device when the Helix Edit app is launched
+
+### Connection keepalive
+
+Some paquets are continuously sent by the device to keep the connection alive.
+
+### Identify the messages 
+
+To identify the messages sent and to start building an understanding of the encoding used in the messages. It might be close to the MIDI protocol for some general things like changing a preset or a bank, different for others things that are more specific of the device.
+
+I can use the app to change the device state and see which paquets are sent, or change the state of the device using its dials and lookup what messages are sent to my computer host.
